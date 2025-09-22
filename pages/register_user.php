@@ -1,23 +1,37 @@
 <?php
-require "connections/db.php";
+require "../connections/db.php";
+if (isset($_SESSION["user_name"])) {
+    header("Location: pages/status.php");
+    exit;
+}
 
 $error = "";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $username = $_POST["username"];
     $email = trim($_POST["email"] ?? "");
-    $password = trim($_POST["password"] ?? "");
-    if ($password !== trim($_POST["password2"] ?? "")) {
-        $error = "As senhas não coincidem.";
-    } else {
-        $hash = password_hash($password, PASSWORD_BCRYPT);
-        $stmt = $conn->prepare("INSERT INTO usuario (user_name, user_mail, user_password) VALUES (?, ?, ?)");
-        $stmt->bind_param("sss", $username, $email, $hash);
-        if ($stmt->execute()) {
-            header("Location: pages/login.php");
-            exit;
+    if (preg_match('/^[a-z]{6,26}$/i', (trim($_POST["password"] ?? "")))) {
+        $password = password_hash(trim($_POST["password"] ?? ""), PASSWORD_BCRYPT);
+
+        $checkEmailStmt = $conn->prepare("SELECT user_mail FROM usuario WHERE user_mail = ?");
+        $checkEmailStmt->bind_param("s", $email);
+        $checkEmailStmt->execute();
+        $checkEmailStmt->store_result();
+
+        if ($checkEmailStmt->num_rows > 0) {
+            $error = "E-mail já cadastrado.";
         } else {
-            $error = "Erro ao cadastrar usuário.";
+            $stmt = $conn->prepare("INSERT INTO usuario(user_name, user_mail, user_password) VALUES (?, ?, ?)");
+            $stmt->bind_param("sss", $username, $email, $password);
+            if ($stmt->execute()) {
+                header("Location: ../index.php");
+                exit;
+            } else {
+                $error = "Erro ao cadastrar usuário.";
+            }
         }
+    } else {
+        $error = "A senha deve conter entre 6 e 26 caracteres alfabéticos.";
     }
 }
 ?>
@@ -38,15 +52,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <div class="log">
             <h2>Cadastro de Usuário</h2>
             <form method="post">
-                <input type="text" id="username" name="username" placeholder="Nome de Usuário" class="box" required><br>
-                <input type="email" id="email" name="email" placeholder="Email" class="box" required><br>
-                <input type="password" id="password" name="password" placeholder="Senha" class="box" required><br>
-                <input type="password" id="password2" name="password2" placeholder="Confirmar Senha" class="box" required><br>
-                <a class="regislink" href="../login.php">Login</a><br>
-                <button type="submit" class="btn">Registrar</button>
+                <input type="text" id="username" name="username" placeholder="Nome de Usuário" class="" required><br>
+                <input type="email" id="email" name="email" placeholder="Email" class="" required><br>
+                <input type="password" id="password" name="password" placeholder="Senha" class="" required><br>
+                <a class="" href="../index.php">Login</a><br>
+                <button type="submit" class="">Registrar</button>
+                <?php if ($error): ?>
+                    <div class="error"><?= htmlspecialchars($error) ?></div>
+                <?php endif; ?>
             </form>
         </div>
     </div>
+
 </body>
 
 </html>
