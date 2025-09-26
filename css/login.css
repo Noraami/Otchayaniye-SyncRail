@@ -1,20 +1,45 @@
 .backgroundf{
-    background-color: #EBF2B6;
+    background-color: #5A565E;
 }
 
 .bgform{
-    background-color: #F2F2F2;
+    background-color: #FAF9F8;
 }
 
 .fontc{
-    color: #352D29;
+    color: #27221f;
 }
 
 .btf{
-    background-color: #B99AD9;
-    color: #211B19;
+    background-color: #B0B199;
+    color: #14100E;
     border: none;
     width: 90%;
     border-radius: 20px;
     padding: 5px;
+}
+
+.link{
+    color: #727D85;
+    
+}
+.link:hover{
+    color: #5A565E;
+}
+
+input:focus::placeholder{
+    font-size: 13px;
+    transition: font-size 0.5s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fontc:focus{
+    box-shadow: 0 0 0 .25rem rgba(176, 177, 153, .69) !important;
+    border-color: #B0B199 !important;
+}
+
+input::placeholder{
+    font-size: 15px;
 }

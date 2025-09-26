@@ -52,13 +52,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <body class="backgroundf">
     <div class="container d-flex justify-content-center align-items-center min-vh-100">
-        <div class="d-flex flex-column align-items-center gap-4 p-4 rounded shadow bgform">
+        <div class="d-flex flex-column align-items-center gap-3 p-4 rounded shadow bgform">
             <h2>Login</h2>
             <form method="post">
                 <div class="d-flex flex-column align-items-center gap-3 fontc">
-                    <input type="email" id="email" name="email" placeholder="Email" class="form-control fontc" required>
-                    <input type="password" id="password" name="password" placeholder="Senha" class="form-control fontc" required>
-                    <a class="" href="pages/register_user.php">Criar conta</a>
+                    <input type="email" id="email" name="email" placeholder="Email" class="form-control fontc text-center" required>
+                    <input type="password" id="password" name="password" placeholder="Senha" class="form-control fontc text-center" required>
+                    <a class="link" href="pages/register_user.php">Criar conta</a>
                     <button type="submit" name="login" class="btf">Entrar</button>
                     <?php if ($error): ?>
                         <div class="error"><?= htmlspecialchars($error) ?></div>
