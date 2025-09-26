@@ -44,23 +44,26 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/login_cad.css">
+    <link rel="stylesheet" href="css/login.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <title>Login</title>
 </head>
 
-<body class="">
-    <div class="">
-        <div class="">
+<body class="backgroundf">
+    <div class="container d-flex justify-content-center align-items-center min-vh-100">
+        <div class="d-flex flex-column align-items-center gap-4 p-4 rounded shadow bgform">
             <h2>Login</h2>
             <form method="post">
-                <input type="email" id="email" name="email" placeholder="Email" class="" required><br><br>
-                <input type="password" id="password" name="password" placeholder="Senha" class="" required><br>
-                <a class="" href="pages/register_user.php">Criar conta</a><br>
-                <button type="submit" name="login" class="">Entrar</button>
-                <?php if ($error): ?>
-                    <div class="error"><?= htmlspecialchars($error) ?></div>
-                <?php endif; ?>
+                <div class="d-flex flex-column align-items-center gap-3 fontc">
+                    <input type="email" id="email" name="email" placeholder="Email" class="form-control fontc" required>
+                    <input type="password" id="password" name="password" placeholder="Senha" class="form-control fontc" required>
+                    <a class="" href="pages/register_user.php">Criar conta</a>
+                    <button type="submit" name="login" class="btf">Entrar</button>
+                    <?php if ($error): ?>
+                        <div class="error"><?= htmlspecialchars($error) ?></div>
+                    <?php endif; ?>
+                </div>
             </form>
         </div>
     </div>

@@ -1,0 +1,20 @@
+.backgroundf{
+    background-color: #EBF2B6;
+}
+
+.bgform{
+    background-color: #F2F2F2;
+}
+
+.fontc{
+    color: #352D29;
+}
+
+.btf{
+    background-color: #B99AD9;
+    color: #211B19;
+    border: none;
+    width: 90%;
+    border-radius: 20px;
+    padding: 5px;
+}
