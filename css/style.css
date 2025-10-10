@@ -1,7 +1,8 @@
-.backgroundf{
-    background-color: #5A565E;
+body {
+    overflow: hidden;
+    padding: 70px;
 }
 
-.bgcont{
-    background-color: #B0B199;
+.backgroundf {
+    background-color: #5A565E;
 }
