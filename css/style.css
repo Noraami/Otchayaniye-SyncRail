@@ -1,8 +1,29 @@
 body {
-    overflow: hidden;
-    padding: 70px;
+    padding:7vh 20px;
+    --bg1: #5A565E;
+    padding-top: calc(7vh + 56px);
 }
 
 .backgroundf {
-    background-color: #5A565E;
+    background-color: var(--bg1);
+    
+}
+
+.bgcont {
+    background-color: #FAF9F8;
+    height: 78vh;
+    
+}
+
+.scrolly{
+    overflow: auto;
+    scrollbar-color: #B0B199 transparent;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
 }

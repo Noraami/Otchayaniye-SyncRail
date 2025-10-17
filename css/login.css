@@ -39,3 +39,8 @@ input:focus::placeholder{
 input::placeholder{
     font-size: 15px;
 }
+
+body{
+    margin: 0;
+    padding: 0;
+}
