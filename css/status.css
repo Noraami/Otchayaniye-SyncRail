@@ -3,5 +3,5 @@
 }
 
 .alertat{
-    padding-left: 41.5%;
+    margin-left: calc((var(--larguraboxtituloalerta) ) / 2 - (var(--larguratituloalerta) / 2));
 }
