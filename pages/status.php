@@ -29,7 +29,7 @@ if (!isset($_SESSION["conected"]) || $_SESSION["conected"] != true) {
         <div class="p-4 rbox w-50 d-flex flex-column align-items-center bg-success rounded">
             <div class="d-flex w-100 justify-content-between mb-3 ps-3 pe-3">
                 <h3 class="m-0 alertat">Alertas</h3>
-                    <button class="btn p-0 iconplus"><i class="bi bi-plus-circle"></i></button>
+                <button class="btn p-0 iconplus" onclick='addAlert();'><i class="bi bi-plus-circle"></i></button>
             </div>
             <div
                 class="w-100 p-4 d-flex flex-column align-items-center g-1 alertacorpo scrolly h-100 bg-danger rounded">
@@ -54,6 +54,12 @@ if (!isset($_SESSION["conected"]) || $_SESSION["conected"] != true) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
+    <script>
+        function addAlert() {
+            alert("Teste de adicionar alerta!");
+        }
+    </script>
+
 </body>
 
 </html>
